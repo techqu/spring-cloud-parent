@@ -6,17 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-cloud-eureka-client" />
+        <module name="spring-cloud-eureka-client-A" />
+        <module name="spring-cloud-eureka-client-B" />
         <module name="spring-cloud-eureka-server" />
-        <module name="spring-cloud-feign" />
-        <module name="springcloudparent" />
+        <module name="spring-cloud-zuul-gateway" />
+        <module name="springcloud-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring-cloud-eureka-client" target="1.8" />
-      <module name="spring-cloud-eureka-server" target="1.8" />
-      <module name="spring-cloud-feign" target="1.8" />
-      <module name="springcloudparent" target="1.5" />
+      <module name="spring-cloud-eureka-client-A" target="1.5" />
+      <module name="spring-cloud-eureka-client-B" target="1.5" />
+      <module name="spring-cloud-eureka-server" target="1.5" />
+      <module name="spring-cloud-zuul-gateway" target="1.5" />
+      <module name="springcloud-demo" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

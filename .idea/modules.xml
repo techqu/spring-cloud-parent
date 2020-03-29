@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-cloud-eureka-client/spring-cloud-eureka-client.iml" filepath="$PROJECT_DIR$/spring-cloud-eureka-client/spring-cloud-eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-eureka-client-A/spring-cloud-eureka-client-A.iml" filepath="$PROJECT_DIR$/spring-cloud-eureka-client-A/spring-cloud-eureka-client-A.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-eureka-client-B/spring-cloud-eureka-client-B.iml" filepath="$PROJECT_DIR$/spring-cloud-eureka-client-B/spring-cloud-eureka-client-B.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cloud-eureka-server/spring-cloud-eureka-server.iml" filepath="$PROJECT_DIR$/spring-cloud-eureka-server/spring-cloud-eureka-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-cloud-feign/spring-cloud-feign.iml" filepath="$PROJECT_DIR$/spring-cloud-feign/spring-cloud-feign.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springcloudparent.iml" filepath="$PROJECT_DIR$/springcloudparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-zuul-gateway/spring-cloud-zuul-gateway.iml" filepath="$PROJECT_DIR$/spring-cloud-zuul-gateway/spring-cloud-zuul-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-demo.iml" filepath="$PROJECT_DIR$/springcloud-demo.iml" />
     </modules>
   </component>
 </project>

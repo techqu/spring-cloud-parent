@@ -3,35 +3,41 @@ package com.quguang.springcloudfeign.command;
 
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixObservableCommand;
+import com.quguang.springcloudfeign.vo.Product;
 import rx.Observable;
 import rx.Subscriber;
 import rx.schedulers.Schedulers;
 
-public class ObservableCommandHelloWorld extends HystrixObservableCommand<String> {
+/**
+ * 批量查询多个商品的command
+ */
+public class ObservableCommandHelloWorld extends HystrixObservableCommand<Product> {
 
-    private final String name;
+    private String[] productIds;
 
-    public ObservableCommandHelloWorld(String name) {
-        super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"));
-        this.name = name;
+    public ObservableCommandHelloWorld(String[] productIds) {
+        super(HystrixCommandGroupKey.Factory.asKey("ObserableExampleGroup"));
+        this.productIds = productIds;
     }
 
     @Override
-    protected Observable<String> construct() {
-        return Observable.create(new Observable.OnSubscribe<String>() {
+    protected Observable<Product> construct() {
+        return Observable.create(new Observable.OnSubscribe<Product>() {
             @Override
-            public void call(Subscriber<? super String> observer) {
+            public void call(Subscriber<? super Product> observer) {
                 try {
-                    if (!observer.isUnsubscribed()) {
-                        observer.onNext("Hello " + name + "!");
-                        observer.onNext("Hi " + name + "!");
+//                    if (!observer.isUnsubscribed()) {
+                        for (String id : productIds) {
+                            //调用http请求，将结果放入onnext中
+                            observer.onNext(new Product(id,"productName"));
+                        }
                         observer.onCompleted();
-                    }
+//                    }
                 } catch (Exception e) {
                     observer.onError(e);
                 }
             }
-        } ).subscribeOn(Schedulers.io());
+        }).subscribeOn(Schedulers.io());
     }
 }
 

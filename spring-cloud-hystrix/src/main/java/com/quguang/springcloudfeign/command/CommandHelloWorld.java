@@ -2,8 +2,9 @@ package com.quguang.springcloudfeign.command;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
+import com.quguang.springcloudfeign.vo.Product;
 
-public class CommandHelloWorld extends HystrixCommand<String> {
+public class CommandHelloWorld extends HystrixCommand<Product> {
 
     private final String name;
 
@@ -13,8 +14,11 @@ public class CommandHelloWorld extends HystrixCommand<String> {
     }
 
     @Override
-    protected String run() {
-        return "Hello " + name + "!";
+    protected Product  run() throws Exception{
+        //发送http请求
+        String response = "Hello " + name + "!";
+        System.out.println(response);
+        return new Product();
     }
 
 }

@@ -1,8 +1,7 @@
 package com.quguang.springcloudfeign.command;
 
-import com.netflix.hystrix.HystrixCommand;
-import com.netflix.hystrix.HystrixCommandGroupKey;
-import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.*;
+import com.netflix.hystrix.strategy.properties.HystrixPropertiesThreadPoolDefault;
 import com.quguang.springcloudfeign.vo.Product;
 
 /**
@@ -14,13 +13,15 @@ public class CommandHelloWorldSemaphore extends HystrixCommand<Product> {
 
     public CommandHelloWorldSemaphore(String name) {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"))
+
                     .andCommandPropertiesDefaults(HystrixCommandProperties.Setter()
-                                                                          .withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.SEMAPHORE)));
+                                                                          .withExecutionIsolationStrategy(HystrixCommandProperties.ExecutionIsolationStrategy.SEMAPHORE)
+                                                                          .withExecutionIsolationSemaphoreMaxConcurrentRequests(10)));
         this.name = name;
     }
 
     @Override
-    protected Product  run() throws Exception{
+    protected Product run() throws Exception {
         //发送http请求
         String response = "Hello " + name + "!";
         System.out.println(response);

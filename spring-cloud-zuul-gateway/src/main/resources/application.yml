@@ -2,7 +2,7 @@ server:
   port: 9000
 zuul:
   routes:
-    serviceA:
-      path: /demo/**
-
-
+    demo:
+      url: http://localhost:8765
+    ServiceA:
+      path: /hi/**
